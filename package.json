@@ -1,0 +1,23 @@
+{
+  "name": "covidtrackerbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vibbyg/covid-tracker-bot.git"
+  },
+  "author": "Vibhor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vibbyg/covid-tracker-bot/issues"
+  },
+  "homepage": "https://github.com/vibbyg/covid-tracker-bot#readme",
+  "dependencies": {
+    "discord.js": "^13.5.0",
+    "dotenv": "^10.0.0"
+  }
+}
