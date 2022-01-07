@@ -55,7 +55,7 @@ exports.run = async (bot, message, argument) => {
             message.channel.send(messageToSend);
         }
     }
-    if(allProv.includes(argument[0]) && !(casesValue.cases.length == 0)){
+    if(argument.length == 1 && !(casesValue.cases.length == 0)){
         getCases(argument[0], casesValue);
     }
     else if(argument[0] === "yesterday"){
