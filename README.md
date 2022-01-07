@@ -19,8 +19,8 @@ Commands are continuously added, so be out on the look out for any updates!
 
 # How it was made
 
-This Covid Tracker Bot was made with Node JS, and I utilized both FetchAPI and Axios to GET data from Tenor GIF's and Open Covid's APIs.
-https://opencovid.ca/
+This Covid Tracker Bot was made with Node JS, and I utilized both FetchAPI and Axios to GET data from Tenor GIF's and Open Covid's APIs. To organize all the commands, I also implemented a command handler.
+https://opencovid.ca/,
 https://tenor.com/
 
 Enjoy :)
