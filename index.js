@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const axios = require('axios');
-require("dotenv").config();
+//require("dotenv").config();
 const bot = new Discord.Client({
     allowedMentions: {
         parse: ['users', 'roles'],
