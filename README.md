@@ -9,7 +9,9 @@ previous days and much more! You can also create use the gif command to generate
 The Covid Tracker Bot utilizes the "!" prefix. So, to call a valid command, start the message with ! followed by one of the valid commands:
 
 * hello // the bot says hello back!
+* gif // the bot will send you a random gif!
 * gif {keyword} // the bot will send you a random gif related to the keyword you entered!
+* gif {keyword} dm // the bot will direct message you a random gif related to the keyword you entered!
 * cases {province/territory} // this will tell you the number of cases in that province/territory today.
 * cases {province/territory} dm // this will direct message you the number of cases in that province/territory today.
 * cases yesterday {province/territory} // this will tell you the number of cases in that province/territory from yesterday.
