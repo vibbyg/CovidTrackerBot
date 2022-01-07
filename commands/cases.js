@@ -32,30 +32,28 @@ exports.run = async (bot, message, argument) => {
     // fetching API
     let fetchAPI = await fetch(covidAPIRelative);
     let casesValue = await fetchAPI.json();
-    
-    // let fetchYestAPI = await fetch(covidAPIYest);
-    // let casesValueYest = await fetchYestAPI.json();
-
-    // let fetchAPI = async () => {
-    //     let response = await axios.get(opencovidAPI);
-    //     let caseData = response.data;
-    //     return caseData;
-    // }
-    // let casesValue = await fetchAPI();
 
     let caseSentence = 'Here are the number of cases in ';
+    let nocaseSentence = "Case data has not updated today. \n You can either call yesterday's data by using !cases yesterday (province/territory) or call a cute gif using !gif cute";
     // function for determining which message to print.
     let allProv = [["ab", "Alberta", "AB", "alberta"], ["bc", "BC"], ["mb", "MB", "Manitoba", "manitoba"], ["NB", "nb"], ["NL", "nl"], ["NS", "ns"], ["NU", "nu", "Nunavut", "nunavut"], ["NWT, nwt"], ["ON", "on", "Ontario", "ontario"], ["PE", "PEI", "pe", "pei"], ["Quebec", "QC", "qc", "quebec"], ["Repatriated", "repatriated"], ["Saskatchewan", "saskatchewan", "SK", "sk"], ["YT", "yt", "Yukon", "yukon"]]
     function getCases(prov, valueVar){
         let counter = 0;
+        let messageToSend = "";
         allProv.forEach(val => {
             if(val.includes(prov)){
-                message.channel.send(`${caseSentence}${valueVar.cases[counter].province}: ${valueVar.cases[counter].cases} \n| Statistics provided by opencovid.ca |`);
+                messageToSend = `${caseSentence}${valueVar.cases[counter].province}: ${valueVar.cases[counter].cases} \n| Statistics provided by opencovid.ca |`;
             }
             else{
                 counter++;
             }
-        })
+        });
+        if(argument[argument.length - 1] === "dm" && !(messageToSend == "")){
+            message.author.send(messageToSend);
+        }
+        else if(!(messageToSend == "")){
+            message.channel.send(messageToSend);
+        }
     }
     if(allProv.includes(argument[0]) && !(casesValue.cases.length == 0)){
         getCases(argument[0], casesValue);
@@ -69,8 +67,10 @@ exports.run = async (bot, message, argument) => {
         getCases(argument[1], casesValue);
     }
     else{
-        console.log(casesValue);
-        message.reply("Case data has not updated today. \n You can either call yesterday's data by using !cases yesterday (province/territory) or call a cute gif using !gif cute");
+        if(argument[argument.length - 1] == "dm"){
+            message.author.send(nocaseSentence);
+        }
+        else{message.reply(nocaseSentence);}
     }
     
 }
