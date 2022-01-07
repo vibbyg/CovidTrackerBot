@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const axios = require('axios');
-//require("dotenv").config();
+require("dotenv").config();
 const bot = new Discord.Client({
     allowedMentions: {
         parse: ['users', 'roles'],
@@ -54,5 +54,3 @@ bot.on("messageCreate", async (message) => {
     let commandfile = bot.commands.get(command);
     if(commandfile) {commandfile.run(bot, message, argument);}
 });
-
-bot.run(process.env.BOTTOKEN);
