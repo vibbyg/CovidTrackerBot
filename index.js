@@ -54,3 +54,5 @@ bot.on("messageCreate", async (message) => {
     let commandfile = bot.commands.get(command);
     if(commandfile) {commandfile.run(bot, message, argument);}
 });
+
+bot.run(process.env.BOTTOKEN);
